@@ -56,12 +56,18 @@ function resetGame() {
   isGameStarted = false;
 }
 
+// Función para mostrar la secuencia del juego
+function showGameSequence() {
+  animateGamePattern();
+  userPattern = [];
+}
+
 // Event listener del boton Start
 startButton.addEventListener("click", () => {
   if (!isGameStarted) {
     isGameStarted = true;
     generateGamePattern();
-    animateGamePattern();
+    showGameSequence();
     level++;
   }
 });
@@ -84,12 +90,12 @@ quadrants.forEach((quadrant) => {
       animateQuadrant(quadrant);
       if (userPattern.length === gamePattern.length) {
         if (checkPattern()) {
-          userPattern = [];
           generateGamePattern();
-          animateGamePattern();
+          showGameSequence();
           level++;
         } else {
-          resetGame();
+          alert(`Wrong sequence!`);
+          showGameSequence();
         }
       }
     }
