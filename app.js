@@ -1,5 +1,6 @@
 const quadrants = document.querySelectorAll(".quadrant");
 const startButton = document.getElementById("start-button");
+const restartButton = document.getElementById("restart");
 const levelDisplay = document.getElementById("level-display");
 const gamePattern = [];
 let userPattern = [];
@@ -63,6 +64,17 @@ function showGameSequence() {
   animateGamePattern();
   userPattern = [];
 }
+
+restartButton.addEventListener("click", () => {
+  if (isGameStarted) {
+    resetGame();
+    isGameStarted = true;
+    generateGamePattern();
+    showGameSequence();
+    level++;
+    levelDisplay.innerHTML = `Number of steps: ${level}`;
+  }
+});
 
 // Event listener del boton Start
 startButton.addEventListener("click", () => {
