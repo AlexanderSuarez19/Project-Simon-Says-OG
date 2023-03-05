@@ -10,10 +10,30 @@
   <body>
     <section id="game-title">Simon Says</section>
     <section id="game-board">
-      <section class="quadrant" id="red"></section>
-      <section class="quadrant" id="green"></section>
-      <section class="quadrant" id="blue"></section>
-      <section class="quadrant" id="yellow"></section>
+      <section class="quadrant" id="red">
+        <audio
+          id="sound-red"
+          src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
+        ></audio>
+      </section>
+      <section class="quadrant" id="green">
+        <audio
+          id="sound-green"
+          src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
+        ></audio>
+      </section>
+      <section class="quadrant" id="blue">
+        <audio
+          id="sound-blue"
+          src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
+        ></audio>
+      </section>
+      <section class="quadrant" id="yellow">
+        <audio
+          id="sound-yellow"
+          src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+        ></audio>
+      </section>
     </section>
     <button id="start-button">Start</button>
     <script src="app.js"></script>

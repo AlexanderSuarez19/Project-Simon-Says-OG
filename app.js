@@ -5,6 +5,13 @@ let userPattern = [];
 let level = 0;
 let isGameStarted = false;
 
+const sounds = {
+  red: document.getElementById("sound-red"),
+  green: document.getElementById("sound-green"),
+  blue: document.getElementById("sound-blue"),
+  yellow: document.getElementById("sound-yellow"),
+};
+
 // Función para generar un patron de juego aleatorio.
 function generateGamePattern() {
   const colors = ["red", "green", "blue", "yellow"];
@@ -19,6 +26,8 @@ function animateGamePattern() {
   const interval = setInterval(() => {
     const quadrant = document.getElementById(gamePattern[i]);
     quadrant.style.filter = "brightness(125%)";
+    sounds[gamePattern[i]].currentTime = 0;
+    sounds[gamePattern[i]].play();
     setTimeout(() => {
       quadrant.style.filter = "brightness(100%)";
     }, 500);
@@ -57,15 +66,22 @@ startButton.addEventListener("click", () => {
   }
 });
 
-//Event listener para los botones de colores
+//Función para animar los botones de colores
+function animateQuadrant(quadrant) {
+  quadrant.style.filter = "brightness(125%)";
+  sounds[quadrant.id].currentTime = 0;
+  sounds[quadrant.id].play();
+  setTimeout(() => {
+    quadrant.style.filter = "brightness(100%)";
+  }, 500);
+}
+
+// Event listener para los botones de colores
 quadrants.forEach((quadrant) => {
   quadrant.addEventListener("click", () => {
     if (isGameStarted) {
       userPattern.push(quadrant.id);
-      quadrant.style.filter = "brightness(125%)";
-      setTimeout(() => {
-        quadrant.style.filter = "brightness(100%)";
-      }, 500);
+      animateQuadrant(quadrant);
       if (userPattern.length === gamePattern.length) {
         if (checkPattern()) {
           userPattern = [];
