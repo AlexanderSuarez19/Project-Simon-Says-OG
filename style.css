@@ -41,7 +41,7 @@ body {
   background-color: #ffd966;
 }
 
-.quadrant:active {
+.quadrant.active {
   filter: brightness(125%);
 }
 
