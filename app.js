@@ -2,6 +2,7 @@ const quadrants = document.querySelectorAll(".quadrant");
 const startButton = document.getElementById("start-button");
 const restartButton = document.getElementById("restart");
 const levelDisplay = document.getElementById("level-display");
+const hard = document.getElementById("Hard");
 const gamePattern = [];
 let userPattern = [];
 let level = 0;
@@ -114,6 +115,9 @@ quadrants.forEach((quadrant) => {
             resetGame();
           }
           levelDisplay.innerHTML = `Number of steps: ${level}`;
+        } else if (hard.checked) {
+          alert(`Game over! Your score is ${level}.`);
+          resetGame();
         } else {
           alert(`Wrong sequence!`);
           showGameSequence();
