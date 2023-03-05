@@ -105,9 +105,14 @@ quadrants.forEach((quadrant) => {
       animateQuadrant(quadrant);
       if (userPattern.length === gamePattern.length) {
         if (checkPattern()) {
-          generateGamePattern();
-          showGameSequence();
-          level++;
+          if (gamePattern.length < 20) {
+            generateGamePattern();
+            showGameSequence();
+            level++;
+          } else {
+            alert("Congratulations! You win!");
+            resetGame();
+          }
           levelDisplay.innerHTML = `Number of steps: ${level}`;
         } else {
           alert(`Wrong sequence!`);
