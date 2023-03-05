@@ -1,5 +1,6 @@
 const quadrants = document.querySelectorAll(".quadrant");
 const startButton = document.getElementById("start-button");
+const levelDisplay = document.getElementById("level-display");
 const gamePattern = [];
 let userPattern = [];
 let level = 0;
@@ -54,6 +55,7 @@ function resetGame() {
   userPattern.length = 0;
   level = 0;
   isGameStarted = false;
+  levelDisplay.innerHTML = "";
 }
 
 // Función para mostrar la secuencia del juego
@@ -69,6 +71,7 @@ startButton.addEventListener("click", () => {
     generateGamePattern();
     showGameSequence();
     level++;
+    levelDisplay.innerHTML = `Number of steps: ${level}`;
   }
 });
 
@@ -93,6 +96,7 @@ quadrants.forEach((quadrant) => {
           generateGamePattern();
           showGameSequence();
           level++;
+          levelDisplay.innerHTML = `Number of steps: ${level}`;
         } else {
           alert(`Wrong sequence!`);
           showGameSequence();
