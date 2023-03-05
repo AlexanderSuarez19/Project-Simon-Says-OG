@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.quadrant {
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #888;
+}
+
+#red {
+  background-color: #ff5050;
+}
+
+#green {
+  background-color: #66cc66;
+}
+
+#blue {
+  background-color: #6699cc;
+}
+
+#yellow {
+  background-color: #ffd966;
+}
+
+.quadrant:active {
+  filter: brightness(125%);
+}
+
+#game-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
